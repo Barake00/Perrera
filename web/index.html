@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="UTF-8">
+        <title>Página de Rescate de Mascotas</title>
+    </head>
+    <body>
+        <h1>Página de Rescate de Mascotas</h1>
+
+        <h2>Registrar una Nueva Mascota:</h2>
+        <form <link rel="stylesheet" type="text/css" href="style2.css"
+                    action="RegistroMascotas" method="post" id="registroForm" class = "container">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+
+            <label for="raza">Raza:</label>
+            <input type="text" id="raza" name="raza" required>
+            <br>
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" required>
+            <br>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required>
+            <br>
+
+            <label for="tipo">Tipo de Mascota:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="">Selecciona un tipo</option>
+                <option value="canino">Canino</option>
+                <option value="felino">Felino</option>
+            </select>
+
+
+            <div id="nivelEntrenamientoDiv" style="display: none;">
+                <label for="nivelEntrenamiento">Nivel de Entrenamiento (0-10):</label>
+                <input type="number" id="nivelEntrenamiento" name="nivelEntrenamiento" min="1" max="10">
+            </div>
+
+            <div id="toxoplasmosisDiv" style="display: none;">
+                <label for="toxoplasmosis">¿Tiene Toxoplasmosis?:</label>
+                <input type="checkbox" id="toxoplasmosis" name="toxoplasmosis">
+            </div>
+
+            <button type="submit">Registrar Mascota</button>
+        </form>
+        <script>
+            document.getElementById("tipo").addEventListener("change", function () {
+                var tipoSeleccionado = this.value;
+                var nivelEntrenamientoDiv = document.getElementById("nivelEntrenamientoDiv");
+                var toxoplasmosisDiv = document.getElementById("toxoplasmosisDiv");
+
+                if (tipoSeleccionado === "canino") {
+                    nivelEntrenamientoDiv.style.display = "block";
+                    toxoplasmosisDiv.style.display = "none";
+                } else if (tipoSeleccionado === "felino") {
+                    nivelEntrenamientoDiv.style.display = "none";
+                    toxoplasmosisDiv.style.display = "block";
+                }
+            });
+        </script>
+    </body>
+</html>
